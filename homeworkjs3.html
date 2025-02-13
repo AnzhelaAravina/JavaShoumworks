@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homeworkjs3</title>
+</head>
+<body>
+    <script>
+
+        let a = 'a little text'
+        let a1 = !!a
+        console.log (
+            typeof a1
+        )
+
+        let b = 456
+        let b1 = !b
+        console.log (
+            typeof b1
+        )
+
+        let c = 'another text'
+        let c1 = + c
+        console.log (
+            typeof c1
+        )
+
+        let d = null
+        let d1 = ! null
+        console.log (
+            typeof d1
+        )
+
+        let e = undefined
+        let e1 = !! undefined
+        console.log (
+            typeof d1
+        )
+
+        const Homeworkjs3 = confirm ('How do you do?')
+        console.log (Homeworkjs3) 
+
+        if (Homeworkjs3 === true) {
+            console.log ('You confirmed popup')
+        }
+        if (Homeworkjs3 === false) {
+            console.log ('Confirm Error')
+        }
+
+        const Homework3 = confirm ('How are you?')
+        Homework3 === true && Homework3 === false 
+        ?console.log ('You confirmed popup')
+        :console.log ('Confirm Error');
+        
+
+        const isAge = Number (prompt("How old are you?"))
+        console.log (isAge)
+
+        if (isAge >1 && isAge <=12) {
+            console.log ("You are child")
+        } else if (isAge >12 && isAge <=18) {
+            console.log ("You are teenager")
+        } else if (isAge >18 && isAge <=60) {
+            console.log ("You are adult person")
+        } else if (isAge >60) {
+            console.log ("You are so old")
+        }
+
+        const isName = String (prompt('What is your Name?'))
+        console.log (isName)
+
+        switch (isName) {
+            case "Admin":console.log ("I have full access");
+            break;
+            case "Student":console.log ("Im student");
+            break;
+            case "Teacher": console.log ("Im teacher");
+            break;
+            case "Young": console.log ("I young and ready to party");
+            break;
+            default: console.log ("You entered own name");
+        }
+
+        const isAbra = Number (prompt ("Abracadabra"))
+        console.log (isAbra)
+
+        isAbra <1 >10 && isAbra >=11 <=18
+            ?console.log ('Dobre')
+            :console.log ('Chudovo')
+
+        const isNumb = Number (prompt('Random'))
+        console.log(isNumb)
+
+        if (isNumb ==1 || isNumb ==2 ) {
+            console.log ('Fayno')
+        } else if (isNumb ===3 && isNumb ===4){
+            console.log ('Yak Fayno')
+        }else if (isNumb !=5 || isNumb !==6) {
+            console.log ('Duzhe Fayno')
+        }
+
+
+
+        
+
+
+        
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>
