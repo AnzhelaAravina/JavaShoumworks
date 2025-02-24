@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homeworkjs4</title>
+</head>
+<body>
+    <script>
+        //1
+        let a = 'something'
+        let b = !!a
+        console.log (
+            typeof b
+        )
+
+        let c = 78
+        let d = !c
+        console.log (
+            typeof d
+        )
+
+        let e = 'another'
+        let f = + e
+        console.log (
+            typeof f
+        )
+
+        let j = null
+        let h = ! null
+        console.log (
+            typeof h
+        )
+
+        let k = undefined
+        let l = !! undefined
+        console.log (
+            typeof l
+        )
+        //2
+        let user = {
+            name: {
+                firstname: {
+                    one: "Ivan",
+                    two: "Victor",
+                    three: "Svetlana",
+                },
+                lastname: {
+                    four: "Petrov",
+                    five: "Ivanov",
+                    six: "Sidorova",
+
+                },
+                nickname: {
+                    seven: "Ivpet",
+                    eight: "Viciv",
+                    nine: "Svetsid",
+                },                
+            },
+            info: {
+                office: {
+                    ten: "Admin",
+                    eleven: "Moderator",
+                    twelve: "Manager",
+
+                },
+                age: {
+                    thirteen: "Young",
+                    fourteen: "Adult",
+                    fifteen: "Old",
+                },
+                hobby: {
+                    seventeen: "Books",
+                    eighteen: "Art",
+                    nineteen: "Photografy",
+                },              
+
+            },
+            car: {
+                brand: {
+                    twenty: "Hyundai",
+                    twentyone: "Oppel",
+                    twentytwo: "Volksvagen",
+                },
+                modelHundai: {
+                    twentythree: "Tucson",
+                    twentyfour: "Elantra",
+                    twentyfive: "Sonata",
+                },
+                modelOppel: {
+                    twentysix: "Astra",
+                    twentyseven: "Mokka",
+                    twentyeight: "Vivaro",
+                },                
+            }           
+
+        }
+        console.log(user.name)
+        console.log (user.car.modelHundai['twentyfour'],user.car.modelHundai['twentyfive'])
+
+        //3
+        let list = [
+            [band = "Slayer","Lacrimosa","Danheim", 
+                Slayer = ["Show No Mercy","Hell Awaits","Reign in Blood"],
+                Lacrimosa = ["Satura","Inferno","Fassade"],
+                Danheim = ["Mannavegr","Herja","Skapanir"]
+            ],
+            [movie = "years902000","movie20002010","movie20102020",
+                years902000 = ["The Green Mile","Fight Club","Titanic"],
+                movie20002010 = ["Avatar","RocknRolla","I Am Legend"],
+                movie20102020 = ["Guardians of the Galaxy","Interstellar","Bohemian Rhapsody"],
+            ],
+            [cartoon = "Disney","Pixar","Burton",
+                Disney = ["Cinderella","Beauty and The Beast","The Little Mermaid"],
+                Pixar = ["Toy Story","Finding Nemo","Monsters, Inc."],
+                Burton = ["Frankenweenie","Corpse Bride","The Nightmare Before Christmas"],
+            ]  
+        ];
+        console.log(list[1][2])
+        console.log(list[2][2],list[2][5])
+        //4
+        for (let i=2;i<=20;i++){
+            if(i%2==0){
+                console.log(i);
+            }
+        }
+        //5
+        let list2 = [
+            "fruit: apple",
+            "color: green",
+            "age: 46",
+        ];
+        console.log(typeof 'list2')
+        //6
+        const cat = prompt ("cats",1,2);
+        if (cat >=2){
+            console.log(cat)
+        }
+        const dog = prompt ("dogs",1,2,3);
+        if (dog >=3){
+            console.log(dog)
+        }
+        //7
+        for (let i=1;i<=15;i+=2){   
+         console.log(i);            
+        }
+        //8 пам'ятаю, що це робиться за допомогою якогось метода, але не знайшла якого
+        const one = [1,5,true,"hello",false,null,"iiii",54,null]      
+        console.log(one[2],one[4],one[6],one[8])
+        //9 те ж саме, що і в попередньому завданні
+        const one1 = [1,5,true,"hello",false,null,"iiii",54,null]      
+        console.log(one1[1],one1[3],one1[5],one1[7])
+        //10
+        const two = [1,2,4,2,3,55,66,777,12]
+        let result = two.reduce((sum,current) => sum+current,0);
+        console.log(result)
+        //11
+        const three = [1,2,4,2,3,5,6,7,1]
+        let result1 = three.reduce ((acc,rec)=>acc*rec)
+        console.log(result1)
+
+
+        
+
+
+    </script>
+</body>
+</html>
