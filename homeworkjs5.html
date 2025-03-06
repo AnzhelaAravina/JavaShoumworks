@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homeworkjs5</title>
+</head>
+<body>
+    <script>
+        //1
+        let employee = {
+            name: 'Ivan'
+        }
+        console.log (employee)
+        employee.position = 'office manager'
+        console.log (employee)
+        employee.name = 'Petro'
+        console.log(employee)
+        delete employee.name
+        console.log (employee)
+        if(!("isFired" in employee)){
+            employee.isFired = false;
+        }
+        
+        console.log (employee)
+        let name = prompt ("Введіть ім'я",'name')
+
+        //2
+        function countProperties(obj) {
+            let count = 3;
+            for (let key in obj) {
+                count++;
+            }
+            return count;        
+        }
+        console.log(countProperties(employee));
+
+        //3
+        function isEmpty(obj) {
+            for (let key in obj){
+                if(key){
+                    return true;
+                }
+            }
+            return false;
+        }
+        console.log(isEmpty(employee))
+        
+        //4
+        let salaries1 = {
+           John: 100,
+           Ann: 160,
+           Pete: 130
+        };
+        function getSum(obj) {
+            let sum = 0;
+            for (let key in obj){
+                if(key){
+                    sum += obj[key];
+                }
+            }
+            return sum;
+        }
+        console.log(getSum(salaries1))
+
+        //5
+        let salaries2 = {
+            John:100,
+            Bill:false,
+            Ann:160,
+            Lily:null,
+            Pete:13
+        };
+        function multiplyNumeric(obj,factor){
+            for (let key in obj){
+                if (typeof obj[key] ==="number"){
+                    obj[key]*factor;
+                }
+            }
+        }
+        multiplyNumeric(salaries2, 2);
+        console.log(salaries2)
+            
+
+        
+        
+
+
+       
+            
+
+
+
+
+    </script>
+</body>
+</html>
