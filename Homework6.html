@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homeworkjs6</title>
+</head>
+<body>
+    <script>
+        //Масиви
+        //0
+        let arr = [1,2,3,4,5]
+        arr.length = 3;
+        console.log(arr)
+        arr.length = 7;
+        console.log(arr[4,5,6,7])
+
+        //1
+        let colors = ['red','green','blue']
+        console.log(colors.at(-1))
+        colors[1] = "yellow";
+        console.log(colors)
+        
+        //2
+        let cars = ["Ford","Mazda","Renault", "Volvo"]
+        cars.push("BMW");
+        console.log(cars)
+        
+        let removed = cars.splice(1,2,"Toyota");
+        console.log(removed)
+
+        let carFord = cars.shift()
+        console.log(carFord)
+
+        cars.unshift("Infinity","VW")
+        console.log(cars)
+
+        //3
+        function multInput(){
+            let input; 
+            let numbers = [];
+            while (true) {
+                input = prompt ("Введіть число","");
+                if (input === null || input === "" || isNaN(input)) break;
+                numbers.push(Number(input));
+            }
+            return numbers.reduce ((acc, num) => acc * num,1)
+        }
+
+        //Методи масивів
+        //0
+        function stylesCorrection(str){
+            return str.split ('!').join('-');  
+        }
+        console.log (stylesCorrection("background!color"));
+        console.log(stylesCorrection("list!style!image"));
+        console.log(stylesCorrection("webkit!transition"));
+
+        //1
+        function filterRange(arr, a, b){
+            return arr.filter ((item) => item.value >= a && item.value <= b );
+        }
+        let arr2 = [
+            {id: 0, value: 5},
+            {id: 1, value: 3}, 
+            {id: 2, value: 8}, 
+            {id: 3, value: 1}
+        ];
+        console.log (filterRange(arr2, 2, 6));
+
+        //2
+        function copyAndSort(arr, sort){
+            let newArr = arr.slice();
+            return newArr.sort((a,b) => sort === "DESK" ? b.value - a.value : a.value - b.value);
+        }
+        console.log(copyAndSort(arr2, "ASK"));
+        console.log(copyAndSort(arr2, "DESK"));
+
+        //3
+        let carsBrand = [
+            {id: 0, brand: 'Ford'}, 
+            {id: 1, brand: 'Toyota'}, 
+            {id: 2, brand: 'Mazda'}
+        ];
+        let brands = carsBrand.map (car => car.brand);
+        console.log(brands);
+
+
+
+
+    </script>
+</body>
+</html>
