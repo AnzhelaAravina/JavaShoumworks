@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homeworkjs7</title>
+</head>
+<body>
+    <script>
+        //1
+        function isCompare (arg1,arg2){
+            if(arg1.string > arg2.string) return 1;
+            if(arg1.string < arg2.string) return -1;
+            if(arg1.string === arg2.string) return 0;
+        }
+
+        //2
+        function isReg (str){
+            if (str.length === 0) return str;
+            return str[0].toUpperCase()+str.slice(1);
+        }
+        console.log(isReg("jupiter"));
+
+        //3
+        function isCount (str){
+            const strvow = "TRAMONtina";
+            let count = 0;
+            for (let i = 0; i < str.length; i++){
+                if (strvow.includes(str[i])){
+                count++;   
+                }
+            }
+            return count;
+        }
+        console.log(isCount("solutions"));
+
+        //4
+        function isSpam(str){
+            const spam = [
+             "100% безкоштовно",
+             "збільшення продажів", 
+             "тільки сьогодні", 
+             "не видаляйте", 
+             "ххх"
+            ];
+            const str2 = str.toLowerCase();
+            return spam.some((word) => str2.includes(word));
+        }
+        console.log(isSpam("Акція тільки сьогодні!"));
+        console.log(isSpam("Відбілювання зубів безкоштовно"));
+
+        //5
+        function truncate(str, maxLength){
+            return str.length > maxLength
+            ? str.slice(0,maxLength -3)+"..."
+            : str;            
+        }
+        console.log(truncate("Hello, world",8))
+
+        //6 (Видає помилку, пробувала різні варіації)
+        function isPalindr(str){
+            const str1 = str.replace(/\s+/g,"").toLowerCase();
+            return str1 === str1.split("").reverce().join("");
+        }
+        //console.log(isPalindr("кит на морі романтик"))
+
+        //7
+        function isCountWord(str){
+            const str2 = str.trim().split(/\s+/);
+            return str2.length;
+        }
+        console.log(isCountWord("Найкращі фільми для сімейного перегляду"))
+
+        //8
+        function longWord(str){
+            const str2 = str.split(/\s+/);
+            return str2.reduce((longest, word) => (word.length > longest.length ? word : longest),"");
+        }
+        console.log(longWord("split розбиває рядок на масив"))
+
+        //9
+        function countLengthWord(str){
+            const str1 = str.split(/\s+/);
+            const str2 = str1.reduce((sum,word) => sum + word.length,0);
+            return str1.length ? str2 / str1.length : 0;
+        }
+        console.log(countLengthWord("можна викликати slice без агрументів"))
+
+        //10
+        function isStringChar(str,char){
+           const str2 = [];
+           let count = 0;
+           for (let i = 0; i < str.length; i++){
+            if (str[i]===char) {
+                str2.push(i);
+                count++;
+            }
+            return {str2, count: str2.length};
+           }
+        }
+        console.log(isStringChar("abrakadabra","a"));
+
+    </script>
+</body>
+</html>
