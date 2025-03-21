@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homeworkjs9</title>
+</head>
+<body>
+    <script>
+        //1
+        function multAll(...abc){
+            return abc.reduce ((acc, curr) => acc * curr, 1);
+        }
+        console.log(multAll(1, 2, 3, 4, 5))
+
+        //2
+        function findMin(numb){
+            return Math.min(...numb);
+        }
+        const numbers = [3,7,2,9,4]
+        console.log(findMin(numbers))
+
+        //3        
+        function splitArray(value){
+            const [one, ...rest] = value;
+            return {one, rest};
+        }  
+        const values = [10, 20, 30, 40];      
+        console.log(splitArray(values))
+
+        //4
+        let a = 10;
+
+        function test() {
+           let a = 20;
+           console.log(a);
+        }
+
+        test();
+        console.log(a);
+        //цей код виводить спочатку 20, потім 10, тому що 20 - локальна змінна, 
+        //яка перекриває 10 - зовнішню змінну.
+
+        //5
+        let x = 5;
+
+        function outer() {
+          let x = 10;
+          function inner() {
+          console.log(x);
+          }
+          inner();
+        }
+
+        outer();
+        //код виводить 10, тому що локальна змінна переважає зовнішню
+
+        //6
+        function counter(){
+            let count = 0;
+            return function(){
+                count++;
+                return count;
+            }
+        }
+        const isCount = counter();
+        console.log(isCount());
+        console.log(isCount());
+        console.log(isCount());
+
+        //7
+        let calculator = {
+            
+            read (){
+                this.one = +prompt ("Перше число:",0);
+                this.two = +prompt ("Друге число:",0);
+            },
+            sum (){
+                return this.one + this.two;
+            },
+            mul (){
+                return this.one * this.two;
+            }
+
+        }
+        calculator.read();
+        alert(calculator.sum() );
+        alert(calculator.mul() );
+        
+
+
+
+    </script>
+</body>
+</html>
