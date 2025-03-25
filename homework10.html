@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homeworkjs10</title>
+</head>
+<body>
+    <script>
+        //1
+        let animal = {
+            legs: 4
+        };
+        let dog = Object.create(animal);
+        console.log(dog.legs);
+        console.log(dog.hasOwnProperty('legs'));
+
+        //2
+        dog.legs = 3;
+        console.log(dog.legs);
+        console.log(dog.hasOwnProperty('legs')); // тепер об'єкт dog має властивість legs і виводить її значення 
+
+        delete dog.legs;
+        console.log(dog.legs); // через те, що властивість dog.legs видалена, повертається властивість батьківського об'єкту
+
+        //3
+        let parent = {
+            sayHello: function() {
+                console.log("Hello from parent");
+            }
+        }
+        let child = Object.create(parent);
+        //console.log(child.sayHello()) //чого тут виводиться в другому рядку undefined?
+        child.sayHello()
+
+        //4
+        let user = {
+            name: "Alice",
+            sayName(){
+                console.log(this.name)
+            }
+        }
+        let admin = Object.create(user);
+        admin.name = "Bob";
+        admin.sayName()// this.name виводить тільки ту властивість, яку бачить в межах об'єкта user, тому admin.sayName викликає нове значення, а значення з батьківського об'єкту не бачить
+
+        //5
+        for (let key in admin){
+            console.log(key)
+        }
+        console.log(Object.keys(admin))
+
+        //6,7
+        class Person {
+            constructor (name,age){
+                this.name = name;
+                this._age = age;
+            }
+            sayHello(){
+                console.log(`Hello, my name is ${this.name}`)
+            }
+            get info(){
+            return `${this.name} is ${this._age} years old`;
+            }
+            set age(value){
+              if (value < 0){
+                console.log("Помилка");                
+              } else {
+                this._age = value;
+              }         
+            }
+            get age() {
+             return this._age;
+            }
+        }
+        const user1 = new Person("Hanna",25);
+        user1.sayHello()
+        console.log (user1.info)
+        user1.age = -2;
+       
+       
+
+        
+
+        
+
+
+
+
+
+       
+
+    </script>
+</body>
+</html>
