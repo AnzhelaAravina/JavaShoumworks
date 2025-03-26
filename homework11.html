@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homeworkjs11</title>
+</head>
+<body>
+    <script>
+        //1
+        class Animal {
+          constructor(name) {
+             this.name = name;
+            }
+
+         speak() {
+             return `${this.name} makes a noise.`;
+            }
+        }
+
+       class Dog extends Animal{
+            speak(){
+                return `${super.speak()} "Woof!"`
+            }
+        }
+
+        const dog = new Dog("Buddy");
+        console.log(dog.speak())
+
+        //2
+        class Animal1 {
+            constructor(name){
+                this.name = name;
+            }
+        }
+        class Cat extends Animal1{
+            constructor(name,color){
+                super(name);
+                this.color = color;
+            }
+
+        }
+        const cat = new Cat ("Misty","black");
+        console.log(cat.name)
+        console.log(cat.color)
+
+        //3
+        class Animal2{
+            constructor(name,size){
+                this.name = name;
+                this.size = size;
+            }
+        }
+        class Bird extends Animal2{
+            constructor(name,size){
+                super(name,size);
+            }
+            get description(){
+                return `${this.name} is a ${this.size} bird`;
+            }
+        }
+        const bird = new Bird("Sparrow", "small")
+        console.log(bird.description)
+
+        //4
+        class Vechicle{
+            constructor(type){
+                this.type = type;
+            }
+        }
+        class Car extends Vechicle{
+            static info(){
+                return "Cars are fast!"
+            }
+        }
+        console.log(Car.info())
+
+        //5
+        class Vechicle1{
+            static info(){
+                return "Vehicles help us move.";
+            }
+        }
+        class Car1 extends Vechicle1{
+            static info(){
+                return `${super.info()} Cars are fast!`;
+            }
+        }
+        console.log(Car1.info())
+
+        //6 не розібралася з цим завданням
+
+        //7
+        class BankAccount {
+            #balance = 0;
+            deposit(amount){
+                if (amount > 0){
+                    this.#balance += amount;
+                } else {
+                    console.log("It's bad situation")
+                }
+            }
+            getBalance(){
+                return this.#balance;
+            }
+        }
+        const account = new BankAccount()
+        account.deposit(100)
+        console.log(account.getBalance())
+        //console.log(account.#balance) // видає помилку
+
+        //8
+        class Animal3{
+            _makeSound(){
+                return "This sound of animals";
+            }
+        }
+        class Dog1 extends Animal3{
+            _makeSound(){
+                return "Bark!"
+            }
+
+        }
+        const dog2 = new Dog1()
+        console.log(dog2._makeSound())
+
+        //9
+        class Shape {
+            constructor(name){
+                this.name = name;
+            }            
+        }
+        class Circle extends Shape{
+            constructor (diameter){
+                super ("Circle");
+                this.diameter = diameter;
+            }
+        }
+        class Rectangle extends Shape{
+            constructor(side1, side2){
+                super ("Rectangle");
+                this.side1 = side1;
+                this.side2 = side2;
+            }
+        }
+        const shapes = [
+            new Circle (4),
+            new Circle (16),
+            new Rectangle (4,4),
+            new Rectangle (5,5),
+        ]
+        const howManyCircles = shapes.filter(shape => shape instanceof Circle).length;
+        console.log(howManyCircles)
+    </script>
+</body>
+</html>
