@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homeworkjs12</title>
+</head>
+<body>
+    <script>
+      //var,let,const
+      //1
+      if (true) {
+        var a = 10;
+        let b = 20;
+      }
+      console.log(a);//виводить 10, тому що var знаходиться в функціональній області видимості і доступний за межами блоку 
+      //console.log(b);//виводить помилку, тому що let в блочній області видимості і не доступний за межами блоку
+     
+
+      //2
+      //const d = 50;
+      //d = 100;
+      //console.log(d);
+      //цей код не спрацює, бо неможна переписувати const
+      //можемо замінити const на let
+      let d = 50;
+      d = 100;
+      console.log(d)//виводить 100, тому що значення d перезаписане
+
+
+      //3
+      const user = { name: "Nick" };
+      //user = { name: "Alex" };
+      user.name = "Alex";
+
+      //стрілкові функції
+      //1
+      const person = {
+        name: "Alice",
+        greet: () => {
+          console.log(`Hello, my name is ${this.name}`);
+        }
+      };
+      person.greet();//виводить Hello, my name is тому що стрілкові функції не мають this
+      //виправляємо, замінюючи стрілкову функцію на звичайну, яка має this
+      const person1 = {
+        name: "Alice",
+        greet: function () {
+          console.log(`Hello, my name is ${this.name}`)
+        }
+        
+      };
+      person1.greet()
+
+      //2
+      const numbers = [1, 2, 3, 4];
+      const squares = numbers.map(num => num * num);
+      console.log(squares);//виводить [1,4,9,16]тому що map створює новий масив, в якому кожний елемент помножується на себе
+
+      //3
+      const Person = (name) => {
+         this.name = name;
+      };
+      //const user = new Person("Alice");
+      //в стрілкових функціях не працює new і this
+      function Person1(name) {
+          this.name = name;    
+      }
+      const user1 = new Person1("Alice");
+      console.log(user1.name)
+
+      //вправи на шаблонні рядки
+      //1
+      const winners = `
+      1. Переможець - Олексій
+      2. Друге місце - Марина
+      3. Третє місце - Сергій`
+      console.log(winners)
+
+      //2
+      function getYear() {
+        return new Date().getFullYear();
+      }
+      console.log(`Зараз ${getYear()} рік`);
+
+      //3
+      //function tag(strings, value) {
+      //    return `${strings[0]}${value.toUpperCase()}${strings[1]}`;
+      //}
+
+      //const user = "nick";
+      //console.log(tag`Привіт, ${user}, як справи?`);
+      //виводить помилку, чому - не розібралася
+
+      //вправи на деструктуризацію масивів і об'єктів
+      //1
+      const colors = ["red", "green", "blue", "yellow"];
+      const [first, ,third] = colors;
+      console.log(first)
+      console.log(third)
+
+      //2
+      const user2 = {
+        name: "Alice",
+        age: 25,
+        country: "USA"
+      };
+      const {name, age, country} = user2;
+      console.log(name)
+      console.log(age)
+      console.log(country)
+        
+      //3
+      const person2 = {
+       name: "Bob"
+      };
+      const {name2 = "Nick", age1 = 30} = person2;
+      console.log(person2.name)//підлаштувала щоб виводило Bob, інакше виводило Alice
+      console.log(age1)
+
+      //4
+      const employee = {
+        id: 1,
+        personalInfo: {
+         firstName: "John",
+         lastName: "Doe"
+        }
+      };
+      const {id, personalInfo:{firstName,lastName}} = employee;
+      console.log(firstName)
+      console.log(lastName)
+
+      //Вправи на оператори ...spread та ...rest
+      //1
+      const arr1 = [10, 20, 30];
+      const arr2 = [40, 50, 60];
+      const mergedArray = [...arr1,...arr2]
+      console.log(mergedArray)
+      //2
+      const car = { brand: "Toyota", model: "Corolla" };
+      const updatedCar = {...car, year: 2022}
+      console.log(updatedCar)
+      //3
+      const fruits = ["apple", "banana", "cherry", "date"];
+      const [firstFruit, ...remainingFruits] = fruits;
+      console.log(firstFruit)
+      console.log(remainingFruits)
+
+      //import, export
+      //1
+      //math.js
+      //export default function square(n) {
+      //  return n*n;
+      //}
+      //main.js
+      //import square from "./math.js";
+      //console.log(square(4)) // має бути 16
+
+      //2
+      //mathOperations.js
+      //export function add(a, b) {
+      // return a + b;
+      //}
+
+      //export function subtract(a, b) {
+      //  return a - b;
+      //}
+
+      //export function multiply(a, b) {
+      // return a * b;
+      //}
+
+      // calculator.js
+      //import * as mathOps from "./mathOperations.js";
+      //console.log(mathOps.add(2,3)) // має бути 5
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>
