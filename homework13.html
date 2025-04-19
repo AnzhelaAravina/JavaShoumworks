@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homeworkjs13</title>
+</head>
+<body>
+    <script>
+        //Try, catch, finally
+        //1
+        try {
+         console.log("Перед помилкою");
+         throw new Error("Щось пішло не так");
+        } catch (error) {
+         console.log("Оброблено:", error.message);
+        } finally {
+         console.log("Блок finally виконується завжди");
+        }
+        console.log("Після try...catch...finally");
+        //в консоль виводиться: 1. Перед помилкою 2. Оброблено: щось пішло не так 
+        // 3. Блок finally виконується завжди 4. Після try...catch...finally
+
+        //2
+        //function parseNumber () {
+
+        //}
+        //не вдалося виконати це завдання
+
+        //Promises
+        //1
+        const myPromise = new Promise((resolve, reject) => {
+          reject("❌ Помилка!");
+        });
+
+        myPromise
+       .then((message) => console.log(message))
+       .catch((error) => console.error(error));
+       //виводить в консоль "Помилка!", бо спрацьовує catch
+
+       //2
+       const myPromise1 = new Promise((resolve) => {
+          resolve(10);
+        });
+
+        myPromise1
+         .then((num) => {
+           throw new Error("❌ Щось пішло не так!");
+        })
+        .catch((error) => console.error(error.message));
+        //виводить "Щось пішло не так" бо в then виникла помилка
+
+        //3
+        const promise1 = new Promise((resolve) => setTimeout(() => resolve("✅ Перше"), 1000));
+        const promise2 = new Promise((resolve) => setTimeout(() => resolve("✅ Друге"), 2000));
+
+        Promise.all([promise1, promise2]).then((results) => console.log(results));
+        //виводить "Перше" і "Друге", тому що Promaise.all чекає виконання всіх обіцянок
+
+        //4
+        const promise3 = new Promise((resolve) => setTimeout(() => resolve("✅ Успіх"), 1000));
+        const promise4 = new Promise((_, reject) => setTimeout(() => reject("❌ Помилка"), 2000));
+
+        Promise.allSettled([promise3, promise4]).then((results) => console.log(results));
+        // виводиться в консолі
+        //  (2) [{…}, {…}]
+        //0: {status: 'fulfilled', value: '✅ Успіх'}
+        //1: {status: 'rejected', reason: '❌ Помилка'}
+        //length: 2
+        //[[Prototype]]: Array(0)
+        //тому що Promise.allSettled повертає результат і статуси
+
+        //async/await
+        //1
+        async function getData() {
+        let result = await Promise.resolve("🚀 Дані отримані!");
+        console.log(result);
+        }
+
+        getData();
+        console.log("⏳ Очікуємо...");
+        //в консолі з'являється "Очікуємо" і "Дані отримані", тому що await призупиняє виконання коду,
+        //поки Promise не виконається
+
+        //2
+        async function loadData() {
+          console.log("Початок");
+
+          let data1 = await new Promise((resolve) => setTimeout(() => resolve("📄 Дані 1"), 2000));
+          console.log(data1);
+
+          let data2 = await new Promise((resolve) => setTimeout(() => resolve("📄 Дані 2"), 1000));
+          console.log(data2);
+
+          console.log("🏁 Кінець");
+        }
+
+        loadData();
+        //виводить "Дані1", "Дані2", "Кінець", тому що всередині async використовуємо await який чекає виконання всіх Promise
+        // "Початок" чогось не хоче виводити, не знаю чому
+
+        //3
+        async function getUser() {
+        let response = await fetch("https://jsonplaceholder.typicode.com/users/1");
+        let user = await response.json();
+        console.log(user.name);
+        }
+
+        getUser();
+        //в консоль виводить Leanne Graham тому що данна комбінація async/await/fetch витягує дані з серверу, тут ім'я користувача
+
+        //4
+        async function delay() {
+        await setTimeout(() => console.log("⏳ Затримка"), 2000);
+        console.log("🏁 Кінець");
+        }
+
+        delay();
+        //виводить спочатку "Кінець", а потім "Затримка", тому що тут немає Promise
+
+
+
+
+    </script>
+</body>
+</html>
