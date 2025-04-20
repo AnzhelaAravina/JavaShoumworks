@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homeworkjs14</title>
+</head>
+<body>
+    <div id="container">
+        <p>Це параграф</p>
+    </div>
+
+    <ul id="menu">
+      <li>Один</li>
+      <li>Два</li>
+      <li>Три</li>
+    </ul>
+
+    <section>
+       <div>
+          <p id="text">Цей текст всередині div.</p>
+        </div>
+    </section>
+
+    <ul id="items">
+      <li>Елемент 1</li>
+      <li>Елемент 2</li>
+      <li>Елемент 3</li>
+    </ul>
+
+    <section>
+      <div>
+         <button id="btn">Натисни мене</button>
+      </div>
+    </section>
+
+    <script>
+        //Навігація по DOM
+        //1        
+        const container = document.getElementById("container");
+        if (container.children.length>0){
+            console.log("Контейнер не порожній");
+        }else{
+            console.log("Контейнер порожній")
+        }
+
+        //2
+        const menu = document.getElementById("menu")
+        console.log(menu.lastElementChild.textContent)
+
+        //3
+        const text = document.getElementById("text")
+        console.log(text.parentElement)
+
+        //4
+        const itemLi = document.querySelectorAll("#items li")
+        itemLi.forEach(item => console.log(item.textContent))
+
+        //5
+        const butt = document.getElementById("btn")
+        console.log(butt.closest("section"))
+
+
+        
+
+
+
+
+
+    </script>
+    
+</body>
+</html>
