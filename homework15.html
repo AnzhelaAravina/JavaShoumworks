@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homeworkjs15</title>
+</head>
+<body>
+    <a href="https://example.com" id="link">Перейти на сайт</a>
+    <button id="getHref">Отримати атрибут href</button>
+
+    <p id="paragraph">Старий текст</p>
+    <button id="replaceText">Заміна тексту</button>
+
+    <div id="box" style="width: 100px; height: 100px;"></div>
+    <button id="changeBackground">Змінити фон</button>
+
+    <div id="box1" class="old-class"></div>
+    <button id="addClass">Додати новий клас</button>
+
+    <ul id="list">
+     <li>Елемент 1</li>
+     <li>Елемент 2</li>
+     <li>Елемент 3</li>
+    </ul>
+    <button id="clearList">Очистити список</button>
+
+    <button id="alertBtn">Натисни мене</button>
+
+    <input type="text" id="itemInput">
+    <button id="addItem">Додати</button>
+    <ul id="list"></ul>
+
+
+    <script>
+        //Маніпуляції з DOM
+        //1
+        const but = document.getElementById("getHref");
+        const link = document.getElementById("link");
+
+        but.addEventListener("click",function(){
+            console.log(link.getAttribute("href"))
+        })
+
+        //2
+        const paragraph = document.getElementById("paragraph")
+        const replaceText = document.getElementById("replaceText")
+        replaceText.addEventListener("click", function(){
+           paragraph.textContent = "Нове значення!"
+        })
+
+        //3
+        const changeBackground = document.getElementById("changeBackground")
+        const box = document.getElementById("box")
+        changeBackground.addEventListener("click", function(){
+            box.style.backgroundColor = "yellow"
+        })
+
+        //4
+        const addClass = document.getElementById("addClass")
+        const box1 = document.getElementById("box1");
+        addClass.addEventListener("click", function(){
+            box.classList.add("new-class");
+        })
+        //при натисканні на кнопку не бачу якоїсь дії в консолі і в документі, це так і треба чи десь помилка?
+
+        //5
+        document.getElementById("clearList").addEventListener("click", function(){
+            document.getElementById("list").innerHTML = "";
+        })
+
+        //6
+        const button = document.getElementById("alertBtn")
+        button.addEventListener("click", function(){
+            alert("Кнопка була натиснута!")
+        })
+
+        //7
+        //не змогла розібратися з цим завданням
+
+
+
+
+        
+        
+
+        
+        
+    </script>
+</body>
+</html>
