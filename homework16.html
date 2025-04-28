@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homeworkjs16</title>
+</head>
+<body>
+    
+    <button id="but1">Натисніть тут</button>
+    <select id="options" name="options">
+        <option value="option1">Вариант 1</option>
+        <option value="option2">Вариант 2</option>
+        <option value="option3">Вариант 3</option>
+    </select>
+    <input type="text" id="inp2" />
+    <br>
+    <button id = "but2">Press the Button</button>
+    <div id="parent" style="padding: 20px; background: lightblue;">
+      <button id="child">Натисни мене</button>
+    </div>
+    <ul id="menu">
+       <li>Елемент 1</li>
+       <li>Елемент 2</li>
+       <li>Елемент 3</li>
+    </ul>
+    <button id = "but3">Додавання пункту</button>
+    <form id="testForm">
+       <input type="text" placeholder="Ваше ім'я">
+       <button type="submit">Відправити</button>
+    </form>
+    <input type="text" id="onlyNumbers" placeholder="Введіть число">
+    <script>
+        //Обробники подій веб-сторінки
+        //Події миші (click, dblclick, mouseover, mouseout, contextmenu)
+
+        //1
+        const button1=document.getElementById("but1")
+        button1.addEventListener("dbclick",function(){
+            button1.textContent = "Натисніть двічі";
+        })
+        //чогось не працює
+
+        //2
+        const button2 = document.getElementById("but1")
+        button2.addEventListener("mouseout", function(){
+            button2.style.backgroundColor = 'red'
+        })
+
+        //Події клавіатури (keydown, keyup, keypress)
+        //3
+        document.addEventListener('keypress', function(event){
+            console.log("You pressed" + event.key);
+        })
+
+        //4
+        document.addEventListener('keydown', function(event){
+            if(event.key === 'Enter'){
+                console.log('Press Enter');
+            }
+        })
+
+        //Події форми (input, change, submit, focus, blur)
+        //5
+        const sel = document.getElementById("options")
+        sel.addEventListener('change', function(){
+            if(sel.value === "option2"){
+                console.log("Option 2 selected")
+            }
+        })
+
+        //6
+        const inp1 = document.getElementById("inp2")
+        inp1.addEventListener('blur', () => {
+            if(inp1.value.trim() === ''){
+                console.log('There should be text here')
+            }
+        })
+        //додала до input айдішку, бо без неї в консолі відбивалася помилка в рядку 60
+
+        //Події документа та вікна (load, scroll, resize, beforeunload, copy)
+        //7
+        window.addEventListener('scroll', function(){
+            console.log("The Page is scrolling", window.scrollY)
+        })
+
+        //8
+        document.addEventListener('copy', function(){
+            console.log("Copying")
+        })
+
+        //Видалення обробника події
+        //9
+        function butClick(){
+            alert("Кнопка натиснута!");
+            button3.removeEventListener('click', butClick)
+        }
+        
+        const button3 = document.getElementById("but2")
+        button3.addEventListener('click', butClick)
+
+        //об'єкт події (event)
+        //10
+        document.addEventListener('click', function(event){
+            console.log("Pressed Element",event.target)
+
+        })
+        //11
+        document.addEventListener('keydown', function(event) {
+            console.log("Pressed Key",event.key); 
+        });
+
+        //Вправи на тему "Спливання та делегування подій в JavaScript"
+        //12
+        document.getElementById("parent").addEventListener("click", function () {
+         alert("Клік на батьківському елементі!");
+        });
+
+        document.getElementById("child").addEventListener("click", function () {
+         alert("Клік на кнопці!");
+        });
+        document.getElementById("child").addEventListener("click", function (event) {
+            event.stopPropagation();
+            alert("Клік на кнопці!");
+        });
+
+        //13
+        document.getElementById("menu").addEventListener("click", function (event) {
+          if (event.target.tagName === "LI") {
+             alert("Ви натиснули: " + event.target.textContent);
+            }
+        });
+        document.getElementById("but3").addEventListener('click', function(){
+            let newButton = document.createElement("Li");
+            but3.textContent = "Новий пункт";
+            document.getElementById("menu").appendChild(but3);
+        })
+
+        //Вправи на тему "Стандартна поведінка подій і preventDefault в JavaScript"
+        //14
+        document.getElementById("testForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+            alert("Форма не була відправлена!")    
+        });
+
+        //15
+        document.getElementById("onlyNumbers").addEventListener("keypress", function (event) {
+            if(!/[0-9]/.test(event.key)){
+                event.preventDefault();
+            }
+
+        });//консоль чогось свариться на айдішку
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>
