@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <form>
+        <label for="pho">Телефон:</label>
+        <input type="tel" id="pho" placeholder="+380XXXXXXXXX"/>
+        <button type="submit">Надіслати</button>
+    </form>
+    <br>
+    <form>
+        <label for="comment">Коментар:</label>
+        <textarea id="comment" maxlength="200"></textarea>
+        <p id="charCount">0 / 200</p>
+    </form>
+    <form>
+        <input type="checkbox" id="agree" /> Я погоджуюся з умовами
+        <br />
+        <button type="submit" id="submitBtn" disabled>Надіслати</button>
+    </form>
+    <br>
+    <form>
+        <label for="password1">Пароль:</label>
+        <input type="password" id="password1" />
+        <br>
+        <br>
+        <label for="password2">Повторіть пароль:</label>
+        <input type="password" id="password2" />
+      
+        <p id="passwordError" style="color: red"></p>
+      
+        <button type="submit" id="submitPassword">Надіслати</button>
+    </form>
+    <br>
+    <form>
+        <label for="color">Виберіть колір фону:</label>
+        <select id="color">
+          <option value="white">Білий</option>
+          <option value="lightblue">Блакитний</option>
+          <option value="lightgreen">Зелений</option>
+          <option value="lightyellow">Жовтий</option>
+        </select>
+    </form>
+    <script>
+        //1
+        document.getElementById('pho').addEventListener('focus', function(){
+            if(!this.value.startsWith('+380')){
+                this.value = '+380' + this.value;
+            }
+        })
+        //не сподобалась айдішка, видало проблему в консолі, змінила "phone"  на "pho"
+
+        //2
+        document.getElementById('comment').addEventListener('input', function(){
+            document.getElementById('charCount').textContent = this.value.length + ' / 200';
+        } )
+
+        //3
+        document.getElementById('agree').addEventListener('change', function(){
+            document.getElementById('submitBtn').disabled = !this.checked;
+        })
+
+        //4
+        document.getElementById('password2').addEventListener('input', function(){
+            let pass1 = document.getElementById('password1').value;
+            let pass2 = document.getElementById('password2').value;
+            let err = document.getElementById('passwordError');
+            let but1 = document.getElementById('submitPassword');
+
+            if(pass1 !== pass2){
+                err.textContent = "Паролі не співпали";
+                but1.disabled = true;
+            }else{
+                err.textContent = '';
+                but1.disabled = false;
+            }
+        })
+
+        //5
+        document.getElementById('color').addEventListener('change', function(){
+            document.body.style.backgroundColor = this.value;
+        })
+
+        
+
+
+
+
+    </script>
+</body>
+</html>
