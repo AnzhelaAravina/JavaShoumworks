@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <ul>
+        <li>Клікніть на div щоб відредагувати.</li>
+        <li>Натискання Enter або втрата фокусу збереже вміст поля введення.</li>
+    </ul>
+    
+    <div id="view" class="view">Текст</div>
+
+    <form id = "inpPhone">
+        <label for ="tele">Phone number:</label>
+        <input type ="tel" id = "tele" pattern="\+380\d{9}" required/>
+        <button type ="submit">Send number</button>     
+    </form>
+    <br>
+    <form id = "wordsmin">
+        <label for="words"></label>
+        <input type="password" id="words" minlength="8" required></textarea>
+        <button type ="submit">Send password</button>
+    </form>
+    <br>
+    <form id = "valURL">
+        <label for="validURL">Send URL:</label>
+        <input type="url" id = "validURL">
+        <button type ="submit">Send URL</button>
+    </form>
+    
+    <script>
+        
+        let area = null;
+        let view = document.getElementById('view');
+    
+        view.onclick = function() {
+          editStart();
+        };
+    
+        function editStart() {
+          change = document.createElement('text');
+          change.className = 'change';
+          change.value = view.innerHTML;
+
+          change.onkeydown = function(event){
+            if(event.key === "Enter"){
+                this.blur();
+            };
+          }
+          change.onblur = function(){
+            change2();
+          };
+          view.replaceWith(change);
+          change.focus();
+        }
+    
+        function editEnd() {
+          view.innerHTML = change.value;
+          change.replaceWith(change);
+        }
+
+    </script>
+</body>
+</html>
