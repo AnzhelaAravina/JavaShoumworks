@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //1
+        let account = {};
+        Object.defineProperty(account, "email", {
+            value: '2316em@gmail.com',
+            writable: false
+        })
+
+        account.email = "2315em@gmail.com";
+        console.log(account.email)
+
+
+        //2
+        let game = {};
+        Object.defineProperty(game, "points", {
+            value: 23,
+            enumerable: false,
+        })
+        for (let key in game){
+            console.log(key)
+        }
+
+        //3
+        let player = {};
+        Object.defineProperty(player, "level", {
+            value: 32,
+            configurable: false,
+        })
+        delete player.level;
+        console.log(player.level)
+
+        //4
+        let car = {};
+        Object.defineProperties(car, {
+            brand:{
+                value: "Fiat",
+                configurable: false,
+            },
+            year: {
+                value: 2012,
+                writable: true,
+            }
+        })
+        console.log(Object.keys(car))
+
+        //5
+        console.log(Object.getOwnPropertyDescriptor(car, "brand"))
+
+        //6
+        let obj = {};
+        Object.defineProperty(obj, "fruit",{
+            value: "Apple",
+            configurable: false,
+        })
+        //Object.defineProperty(obj, "fruit", {
+        //    configurable: true,
+        //}) - видає помилку
+
+        //7
+        let user = {};
+        Object.defineProperty(user, "isAdmin", {
+            value: "admin",
+            writable: false,
+            enumerable: false,
+        })
+        user.isAdmin = "user";
+        console.log(user.isAdmin)
+
+        //8
+        let planets = {
+            name: "Mars"
+        }
+        Object.preventExtensions(planets);
+        planets.star = "Sun"
+        console.log(planets.star)
+
+        //9
+        let book = { title: "JS Guide" };
+        Object.freeze(book);
+        book.title = "JS for Donkeys";
+        console.log(book.title)
+
+        //10
+        let options = { debug: true };
+        Object.seal(options);
+        delete options.debug;
+        options.audit = "true";
+        console.log(options.debug)
+        console.log(options.audit)
+
+
+    </script>
+    
+</body>
+</html>
