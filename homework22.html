@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //1
+        let logger = {
+            _message: "",
+            get message(){
+                return this._message;
+            },
+            set message(value){
+                console.log("Новий запис: "+value);
+                this._message = value;
+
+            }
+        }
+        logger.message = "Як справи?"
+        console.log(logger.message)
+
+        //2
+        const clock ={};
+        Object.defineProperty(clock, "time", {
+            get(){
+                const one = new Date;
+                const two = one.getHours().toString().padStart(2,"0");
+                const three = one.getMinutes().toString().padStart(2,"0");
+                return `${two}:${three}`
+            },
+            enumerable: false, 
+        })
+        console.log(clock.time)
+        for (let key in clock);
+        //console.log(key)
+
+        //3
+        let sym1 = Symbol("id");
+        let sym2 = Symbol("id");
+
+        console.log(sym1 === sym2);//виводиться false тому що symbol не можуть бути рівними, навіть якщо вони однакові
+
+        //4
+        let id = Symbol("id");
+        let user = {
+         name: "Alice",
+         [id]: 123
+        };
+
+        console.log(user[id]);//виводиться 123, symbol використовується як ключ
+
+        //5
+        let secret = Symbol("secret");
+        let person = {
+          name: "Bob",
+          age: 25,
+          [secret]: "hidden info"
+        };
+
+        for (let key in person) {
+         console.log(key);
+        }//виводить name, age тому що символи ігноруються for...in
+
+        //6
+        let globalSymbol = Symbol.for("shared");
+        let sameSymbol = Symbol.for("shared");
+
+        console.log(globalSymbol === sameSymbol);
+        console.log(Symbol.keyFor(sameSymbol));
+        //виводиться true, shared - чому так, не розібралася. 
+
+        //7
+        let sym = Symbol("id");
+        console.log(sym == "id");
+        // виводить false тому що symbol не може дорівнювати рядку
+
+        //8
+        let sam = Symbol("test");
+        console.log(String(sam));
+        //змінила назву змінної, бо інакше помилка і код не читається. Виводить Symbol(test)
+
+
+    </script>
+</body>
+</html>
