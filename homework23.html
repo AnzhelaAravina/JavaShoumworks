@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //1
+        let arr = ['a', 'b', 'c'];
+        let iterator = arr[Symbol.iterator]();
+
+        console.log(iterator.next().value);
+        console.log(iterator.next().value);
+        console.log(iterator.next().value);
+        // виводить a,b,c різними рядками тому що Symbol.iterator дозволяє виводити об'єкт по частинах
+
+        //2
+        //a) let obj = {a: 1, b: 2} - не перебирається
+
+        //b) let arr = [1, 2, 3] - перебирається
+
+        //c) let str = "hello" - перебирається
+
+        //d) let map = new Map() - перебирається
+
+        //3
+        let str = "OK";
+        for (let char of str) {
+          console.log(char);
+        }
+        // виведе О та К окремими рядками, тому що for...of розділяє рядок на окремі елементи
+
+        //4
+        //Об`єкт з властивістю length це псевдомасив, для того щоб примінити для нього методи масивів, треба скористуватися Array.from
+
+        //5
+        //Symbol.iterator це метод, який за умовчанням мають об`єкти, які можуть ітеруватися. Також його можна спеціально викликати. 
+
+        //6
+        //завершення ітерації в методі next позначається {done: true}
+
+        //7
+        let arr1 = [10, 20, 30];
+        let iter = arr[Symbol.iterator]();
+
+        console.log(iter.next());
+        console.log(iter.next());
+        console.log(iter.next());
+        console.log(iter.next());
+        //ітератор не знаходить четвертий елемент, тому дія припиняється зі значенням undefined, done: true
+
+        //8
+        //не виходить виконати це завдання
+    </script>
+</body>
+</html>
