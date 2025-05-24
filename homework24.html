@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //1
+        let salaries = {
+         "Іван": 100,
+         "Петро": 300,
+         "Марія": 250
+        };
+        function sumSalaries(salaries){
+            return Object.values(salaries).reduce((a,b) => a + b, 0)
+
+        }
+        alert( sumSalaries(salaries) )
+
+        //2
+        let user = {
+          name: 'Іван',
+          age: 30
+        };
+        function count(obj) {
+            return Object.keys(obj).length
+        }
+        alert( count(user) )
+
+        //3
+        function countUniqueWords(str) {
+            const coun = new Map;
+            const coun2 = str.trim().toLowerCase().split(/\s+/);
+            for (let elem of coun2){
+                coun.set(elem, (coun.get(elem) || 0) +1);
+            }
+            return coun;
+  
+        }
+
+        console.log(countUniqueWords("apple orange banana apple orange apple"))
+
+        //4
+        const students = new Map([
+         ["Anna", 90],
+         ["Boris", 85],
+         ["Clara", 90],
+         ["Dmitry", 70]
+        ]);
+        function findStudentsByGrade(map, grade){
+            //не розібралася з цим завданням
+        }
+
+        //console.log(findStudentsByGrade(students, 90))
+
+        //5
+        const products = new Map([
+         ["Bread", 20],
+         ["Milk", 30],
+         ["Cheese", 50]
+        ]);
+        function applyDiscount(map, percent){
+            //з цим завданням також не можу розібратися
+        }
+
+        console.log(applyDiscount(products, 10))
+    </script>
+</body>
+</html>
