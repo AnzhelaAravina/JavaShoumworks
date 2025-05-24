@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button type="submit" id="but1">Надіслати</button>
+    <br>
+    <br>
+    <button type="submit" id="but2">Оновити сторінку</button>
+    
+    <script>
+        //1
+        let counter = sessionStorage.getItem("count1");
+        counter = 0;
+        document.getElementById('but1').addEventListener('click', ()=>{
+            counter++;
+            sessionStorage.setItem('count1', counter);
+        })
+
+        //2
+        document.getElementById("but2").addEventListener('click', () =>{
+            location.reload()
+        })
+        //не зрозуміла, як це працює на практиці і чи взагалі працює
+
+        //3
+        const obj1 = {name: "Olga", age: 25};
+        localStorage.setItem('obj1', JSON.stringify(obj1));
+        const obj2 = JSON.parse(localStorage.getItem(obj1))
+        console.log(obj2)
+
+
+
+        
+    </script>
+</body>
+</html>
