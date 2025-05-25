@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //1
+        const date = new Date();
+        date.setDate(date.getDate()+5);
+        document.cookie = "currency = UAH; expires ="+date.toUTCString();
+        console.log(document.cookie)
+
+        //2
+        document.cookie = "userType=premium; path =/account";
+
+        //3
+        document.cookie = "accepted=true; samesite = Lax";
+
+        //4
+        function deleteCookie(name){
+            document.cookie = "name=; max-age=0; path=/"
+            console.log(deleteCookie)
+        }
+
+        //5
+        document.cookie = "fontSize=large; max-age = 7200; secure; path=/"
+
+        //6
+        function hasCookie(name){
+            return document.cookie.split(";").some(cookie => cookie.startsWith(name + "="))
+
+        }
+        console.log(hasCookie("theme"))
+
+        //7
+        const date1 = new Date();
+        date1.setFullYear(date1.getFullYear()+10)
+        document.cookie = "auth=yes; expires =`${date.toUTCString()}; path=/`"
+
+        //8
+        //не змогла вирішити це завдання
+
+        //9
+        document.cookie = "popupClosed=true; path=/"
+
+        //10
+        function allCoock(){
+            return document.cookie.split(';').map(cookie =>{
+                const [key, value] = cookie.split("=");
+                return {key, value};
+            })
+        }
+        const newArr = allCoock();
+        console.log(newArr)
+    </script>
+</body>
+</html>
