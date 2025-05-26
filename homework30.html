@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //1
+        function getEvenSquares(arr){
+            return arr.filter(n => n%2 ===0).map(n => n*n)
+        }
+        console.log(getEvenSquares([1, 2, 3, 4]))
+
+        //2
+        function removeDuplicates(arr){
+            let result = [];
+            for (let num of arr){
+                if (!result.includes(num)){
+                    result.push(num);
+                }
+            }
+            return result
+        }
+        console.log(removeDuplicates([1, 2, 2, 3, 1]))
+
+        //3
+        function longestWord(words){
+            let long = "";
+            for (let word of words){
+                if (word.length > long.length){
+                    long = word
+                }
+            }
+            return long;
+        }
+        console.log(longestWord(["hi", "hello", "welcome"]))
+
+        //4
+        function getUserNames(users){
+            return users.map(user => user.name)
+        }
+        console.log(getUserNames([{name: "Olga"}, {name: "Ivan"}]))
+
+        //5
+        function hasProperty(obj, key){
+            return obj.hasOwnProperty(key)
+        }
+        console.log(hasProperty({ a: 1 }, "a"))
+        console.log(hasProperty({}, "b"))
+
+        //6
+        function cloneWithout(obj, key){
+            const another = {...obj}
+            delete another[key]
+            return another
+        }
+        console.log(cloneWithout({ name: "Olga", age: 30 }, "age"))
+
+        //7
+        function countVowels(str){
+            const vowels = str.match(/[aeiou]/gi)
+            return vowels ? vowels.length : 0;
+        }
+        console.log(countVowels("hello"))
+
+        //8
+        function formatPrice(price){
+            return "$" + price.toFixed(2)
+        }
+        console.log(formatPrice(4.567))
+
+        //9
+        function normalizeName(name){
+            
+            return name.trim().charAt(0).toUpperCase()+name.trim().slice(1).toLowerCase()
+        }
+        console.log(normalizeName("  aNNa "))
+
+        //10
+        // не змогла вирішити це завдання
+
+        //11
+        function isFalsy(value){
+            return !value;
+        }
+        console.log(isFalsy(0))
+        console.log(isFalsy("hello"))
+        
+        //12
+        function getType(value){
+            if (value===null) return "null";
+            if (Array.isArray(value)) return "array";
+            return typeof value;
+        }
+        console.log(getType([]))
+        console.log(getType(null))
+        console.log(getType("hello"))
+
+    </script>
+</body>
+</html>
