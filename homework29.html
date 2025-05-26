@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //1
+        function smartAdd(a, b){
+            if (typeof a === "number" && typeof b === "number"){
+                return a + b;
+            };
+            if (typeof a === "string" && typeof b === "string"){
+                return a + b;
+            }
+            if (typeof a === "boolean" || typeof b === "boolean"){
+                return "Invalid";
+            }
+            return null;
+        }
+        console.log(smartAdd(5,2))
+        console.log(smartAdd("one","two"))
+        console.log(smartAdd("three", false))
+        console.log(smartAdd(4))
+
+        //2
+        function getGreeting(hour) {return(hour < 6 ? "Good night" : hour < 12 ? "Good morning" : hour < 18 ? "Good afternoon" : "Good evening")};
+        console.log(getGreeting(14))
+        console.log(getGreeting(6))
+
+        //3
+        function canDrive(age, hasLicense){
+            if (age < 18) return "Too young"
+            if (!hasLicense) return "Need a license"
+            return "Can drive"
+        }
+        console.log(canDrive(14, false))
+        console.log(canDrive(22, true))
+        console.log(canDrive(57, false))
+
+        //4
+        function getDayType(day){
+            switch(day){
+                case 1: 
+                //break
+                case 2: 
+                //break
+                case 3: 
+                //break
+                case 4: 
+                //break
+                case 5: return "Weekday"
+                //break
+                case 6: 
+                //break
+                case 7: return "Weekend"
+                //break
+                default: return "Invalid day"
+                //break  чого не працює з break?              
+            }
+        }
+        console.log(getDayType(3))
+        console.log(getDayType(7))
+        console.log(getDayType(12))
+
+        //5
+        function triangle(n){
+            for (let i = 1; i <=n; i++){
+                if (i %2 === 0) continue;
+                console.log(i)
+            }
+        }
+        console.log(triangle(4))//чогось ще й undefined виводить, не можу розібратись чому
+
+        //6
+        function isLeapYear(year){
+            return //не змогла вирішити це завдання
+        }
+
+        //7
+        function createLimiter(limit){
+            let count = 0;
+            return function increment(){
+                if (count < limit){
+                    count++;
+                }
+                return count;
+            };
+        }
+        const inc = createLimiter(3)
+        console.log(inc())
+        console.log(inc())
+        console.log(inc())
+        console.log(inc())
+
+        //8
+        function sumOnlyNumbers(){
+            let onnumb = 0;
+            for (let i = 0; i < arguments.length; i++){
+                if(typeof arguments [i] === "number"){
+                    onnumb += arguments[i]
+                }
+            }
+            return onnumb
+
+        }
+        console.log(sumOnlyNumbers(1, "a", true, 4))
+
+        //9
+        function executeTwice(callback, ...args){
+            return [callback(...args),callback(...args)]
+        }
+        function extwice(){
+            return "Word"
+        }
+        console.log(executeTwice(extwice))
+
+        //10
+        //nction countDigits(n){
+        //  let result = 0;
+            
+        //не можу вирішити це завдання
+
+    </script>
+</body>
+</html>
