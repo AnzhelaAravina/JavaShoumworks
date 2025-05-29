@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //1
+        if (a > 0 && b > 0 || c ===0){
+            console.log()
+        }
+
+        //2
+        let a = 1
+        let b = 2
+        let res = a > b ? `${a} "більше"`:`${b} "більше"`
+
+        //3
+        count = 0;
+        while (true){
+            console.log(count);
+            count++;
+            if (count === 5){
+                break;
+            }            
+        }
+
+        //4
+        let arr = [1,5,20,10];
+        let found = false;
+        arr.forEach((element,index) => {
+            if(element > 10 && !found){
+                console.log(index)
+            }
+        })
+
+        //5
+
+        let arr1 = [1,5,20,10];
+        let one = false;
+        for (let i = 0; i < arr.length; i++){
+            if (arr1[i] === 0){
+                one = true;
+            }
+        }
+
+        //6
+        function greeting (name = "Darina"){
+            return `"Привіт" ${name}`;
+        }
+        console.log(greeting());
+
+        //7
+        function divide(num){
+            return num % 3 === 0;
+        }
+
+        //8
+        let arr2 = [1,5,20,10];
+        function lastElement(arr){
+            return arr.length[-1]
+        }
+
+        //9
+        let arr3 = [3,9,10,5,20];
+        arr3.sort((a,b) => b -a)
+
+        //10
+        let arr4 = arr3.map( n => n*2);
+
+        //11
+        let user = {
+            name: "Ivan",
+            age: 25
+        }
+        console.log(user.name)
+        delete user.age;
+        
+        let key = "position";
+        user[key] = "junior"
+
+        //12
+        setInterval(()=>{
+            console.log("рядок");
+        },2000);
+        
+        //13
+        const a1 = 5;
+        try {
+            if(a1 > 5){
+            throw new Error("а1 більше 5")
+            }
+        }catch(err){
+            console.log(err)
+        }
+
+
+
+        
+
+        
+
+
+    </script>
+</body>
+</html>
